@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 1;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+
+    <title>Análisis de opinión economica</title>
+</head>
+<body>
+<h1>Análisis de opinión economica</h1>
+<h3>La mayoria de personas no tienen esperanza de un futuro mejor economicamente</h3>
+<div class="container">
+    <p>Al tomar una encuesta de opinión economica de la facultad de economia de la universdad de los Andes en el año 2007, y realizar
+        un analisis de similaridad entre responendentes de la encuesta, se encontraron 2 posiciones que en general tienen
+        las persoans sobre la situación economica</p>
+    <div class="list-group">
+        <a href="#" class="list-group-item">
+            <div class="row">
+                <div class="col-md-8">
+                <h4 class="list-group-item-heading">1. "Vamos de mal en peor y con palanca se logran las cosas"</h4>
+                <p class="list-group-item-text">Creen que su ingreso no les alcanza y tienen dificultades</p>
+                <p class="list-group-item-text">Creen que sus padres vivian peor a como ellos viven hoy</p>
+                <p class="list-group-item-text">Creen que sus hijos vivirán peor a como ellos viven hoy</p>
+                <p class="list-group-item-text">Se identifican a si mismos en un rango medio-bajo de ingresos</p>
+                <p class="list-group-item-text">Identifican a sus padres en un rango bajo de ingresos</p>
+                <p class="list-group-item-text">Creen que el éxito depende de las conexiones</p>
+                <p class="list-group-item-text">Creen que el trabajo duro no es garantía del éxito</p>
+                <p class="list-group-item-text">Creen que la pobreza se debe a las circunstancias</p>
+                <p class="list-group-item-text">Están algo en desacuerdo con el capitalismo como sistema economico en Colombia</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p>Número de personas</p>
+                    <h1>371/500</h1>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="list-group-item">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4 class="list-group-item-heading">2. "La situación esta estable y con esfuerzo se logra el éxito"</h4>
+                    <p class="list-group-item-text">Creen que su ingreso cubre sus gastos y les alcanza para ahorrar</p>
+                    <p class="list-group-item-text">Creen que sus padres vivian igual a como ellos viven hoy</p>
+                    <p class="list-group-item-text">Creen que sus hijos viviran igual a como ellos viven hoy</p>
+                    <p class="list-group-item-text">Se identifican a si mismos en un rango medio-alto de ingresos</p>
+                    <p class="list-group-item-text">Identifican a sus padres en un rango medio-alto de ingresos</p>
+                    <p class="list-group-item-text">Creen que el éxito no depende de las conexiones</p>
+                    <p class="list-group-item-text">Creen que el trabajo duro es garantía del éxito</p>
+                    <p class="list-group-item-text">Creen que la pobreza se debe a la falta de esfuerzo</p>
+                    <p class="list-group-item-text">Están algo muy de acuerdo con el capitalismo como sistema economico en Colombia</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p>Número de personas</p>
+                    <h1>120/500</h1>
+                </div>
+            </div>
+        </a>
+    </div>
+    <p>En la siguiente visualización cada círculo representa una persona que respondio la encuesta, al pasar el cursor
+        encima de un circulo se podra ver las personas con las que se tiene mayor afinidad, y a la derecha aparece lo que
+        respondio esta persona a las preguntas de la encuesta, entre mayor afinidad tengan 2 personas, sus circulos
+        aparecerán mas cercanos, de esta forma es posible obervar 2 grandes aglomeraciones, en la mas grande estan
+        las personas cuya opinion representativa es la número 1, y en el mas pequeño estan las que tienen opinion
+        representativa de número 2.</p>
+
+    <p>Mayor información sobre la encuesta y el significado de cada pregunta de la encuesta se puede encontrar en el siguiente link
+        <a href="5ab_Diccionario_ESP.pdf">Diccionario de la encuesta</a></p>
+</div>
+<div class="row-fluid">
+<div class="col-md-6">
+            <svg width="600" height="800" class="item left"></svg>
+        </div>
+        <div class="col-xs-6">
+            <h2>Preguntas</h2>
+            <div class="list-group">
+                <a href="#" class="list-group-item">1. El ingreso cubre sus necesidades
+                    <span id ="ing_subjetivo" class="badge"></span></a>
+                <a href="#" class="list-group-item">2. Sus padres vivian mejor, igual o peor que  como ud. vive hoy
+                    <span id="mov_padres" class="badge"></span></a>
+                <a href="#" class="list-group-item">3. Sus hijos viviran mejor, igual o peor que  como ud. vive hoy
+                    <span id="mov_hijos" class="badge"></span></a>
+                <a href="#" class="list-group-item">4. Ubique su riqueza personal
+                    <span id="ubicaria_usted" class="badge"></span></a>
+                <a href="#"  class="list-group-item">5. Ubique la riqueza de sus padres
+                    <span id="ubicaria_padres" class="badge"></span></a>
+                <a href="#" class="list-group-item">6. Ubique la riqueza que cree que trendran sus hijos
+                    <span id="ubicaria_hijos" class="badge"></span></a>
+                <a href="#"  class="list-group-item  ">7. Como se distribuye la riqueza
+                    <span id="distribucion_riqueza" class="badge"></span></a>
+                <a href="#" class="list-group-item">8. Éxito depende de conexiones
+                    <span id= "exito" class="badge"></span></a>
+                <a href="#" class="list-group-item">9. Trabajo duro es garantia de éxito
+                    <span id="trabajo_duro" class="badge"></span></a>
+                <a href="#" class="list-group-item">10. Todos con igual oportunidades
+                    <span id="pobre_rico" class="badge"></span></a>
+                <a href="#" class="list-group-item">11. Causas de probreza
+                    <span id="causas_pobreza" class="badge"></span></a>
+                <a href="#" class="list-group-item">12. De acuerdo con privatización
+                    <span id="privatizaciones" class="badge"></span></a>
+                <a href="#" class="list-group-item">13. Capitalismo es lo mejor para el país
+                    <span id="economia_capitalista" class="badge"></span></a>
+                <a href="#" class="list-group-item">14. El estado debe priorizar reducir brecha entre ricos y pobres
+                    <span id="reducir_diferencias" class="badge"></span></a>
+                <a href="#" class="list-group-item">15. El estado debe encargarse de proveer educación
+                    <span id="provision_educacion" class="badge"></span></a>
+                <a href="#" class="list-group-item">16. El estado debe encargarse de proveer salud
+                    <span id="provision_salud" class="badge"></span></a>
+                <a href="#" class="list-group-item">17. El estado dejar que los privador se encargen de la producción
+                    <span id="privado_actividad" class="badge"></span></a>
+                <a href="#" class="list-group-item">18. El estado debe incentivar la inversion extranjera
+                    <span id="inversion_extranjera" class="badge"></span></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://d3js.org/d3.v4.min.js">
+</script><script src="d3.legend.js"></script>
+<script>
+
+var over = "ontouchstart" in window ? "touchstart" : "mouseover";
+var out = "ontouchstart" in window ? "touchend" : "mouseout";
+
+console.oldLog = console.log;
+
+console.log = function(value)
+{
+    console.oldLog(value);
+    window.$log = value;
+};
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var color = d3.scaleLinear()
+    .domain([0, 6])
+    .range(["red", "steelblue"]);;
+
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink()
+        .id(function(d) { return d.id; })
+        .distance(function(d) {
+            return 1/d.value*100; }))
+    .force("charge", d3.forceManyBody()
+        .strength(-30))
+    .force("x", d3.forceX(width/2))
+    .force("y", d3.forceY(height/2))
+    .force("oclussion",d3.forceCollide(6));
+
+
+grafo = d3.json("red.json", function(error, graph) {
+  if (error) throw error;
+
+  var link = svg.append("g")
+      .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    //.enter().append("line")
+    //  .attr("stroke-width", function(d) { return 0;});
+
+  var node = svg.append("g")
+      .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter().append("circle")
+      .attr("r", 6)
+      .attr("fill", function(d) { return "steelblue"; })
+      .attr("data-legend",function(d) { return d.estrato;})
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended))
+      .on(over, function(nodo){
+        link.enter().select(function(d){return d.source.id == nodo.id ? this : null})
+            .append("line")
+            .attr("stroke-width", function(d) { 10})
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        for(i in nodo){
+            d3.select("#"+i)
+                .text(nodo[i])
+        }
+        })
+      .on(out,function(d){
+          svg.selectAll("line").remove();
+        });
+
+  node.append("title")
+      .text(function(d) { return d.id; });
+
+  simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
+
+
+  function ticked() {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node
+        .attr("cx", function(d) { return d.x = Math.max(6, Math.min(width - 6, d.x)); })
+        .attr("cy", function(d) { return d.y = Math.max(6, Math.min(height - 6, d.y)); });
+  }
+
+});
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+</script>
+</html>
